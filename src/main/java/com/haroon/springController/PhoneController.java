@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -46,5 +47,18 @@ public class PhoneController {
             this.phoneService.updatePhone(p);
         }
         return "redirect:/phones";
+    }
+
+    @RequestMapping("/remove/{id}")
+    public String removePhone(@PathVariable("id") int id){
+        this.phoneService.removePhone(id);
+        return "redirect:/phones";
+    }
+
+    @RequestMapping("/edit/{id}")
+    public String editPhone(@PathVariable("id") int id, Model model){
+        model.addAttribute("phone", this.phoneService.getPhoneById(id));
+        model.addAttribute("listPhones", this.phoneService.listPhones());
+        return "phone";
     }
 }
