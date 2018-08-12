@@ -45,7 +45,7 @@
         <dependency>
             <groupId>org.posgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>${org.postgresql.version}</version>
+            <version>9.4.1207.jre7</version>
         </dependency>
 
         <!-- Hibernate -->
