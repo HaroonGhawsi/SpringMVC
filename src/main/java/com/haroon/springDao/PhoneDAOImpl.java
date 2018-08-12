@@ -17,9 +17,6 @@ public class PhoneDAOImpl implements PhoneDAO {
         this.sessionFactory = sf;
     }
 
-
-
-
     @Override
     public void addPhone(Phone p) {
         Session session = this.sessionFactory.getCurrentSession();
